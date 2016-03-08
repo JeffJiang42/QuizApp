@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">QuizApp-Lesson1</string>
+    <array name="questions">
+        <item>What is the answer to question 1?</item>
+        <item>What is the best mobile OS?</item>
+    </array>
+    <array name="answers">
+        <item>The answer to question 1</item>
+        <item>NOT the answer to question 1</item>
+        <item>Also NOT the answer to question 1</item>
+        <item>Still NOT the answer to question 1</item>
+        <item>iOS</item>
+        <item>Android</item>
+        <item>Windows Phone</item>
+        <item>Blackberry</item>
+    </array>
+    <array name="correct_answers">
+        <item>The answer to question 1</item>
+        <item>Android</item>
+    </array>
+</resources>
