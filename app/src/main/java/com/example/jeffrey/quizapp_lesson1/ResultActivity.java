@@ -23,7 +23,7 @@ public class ResultActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.result_list_view);
         Intent i = getIntent();
         if (i != null) {
-            ArrayList<String> result = new ArrayList<>(Arrays.asList(i.getStringArrayExtra("results")));
+            ArrayList<String> result = i.getStringArrayListExtra("results");
             System.out.println(result);
             //Log.d("Debug arraylist",result.get(0));
             listViewAdapter = new ArrayAdapter<>(this, R.layout.result_list_item, R.id.result_text_view, result);

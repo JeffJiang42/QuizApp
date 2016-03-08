@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] answers;
     private String[] questions;
     private String[] correctAnswers;
-    private String[] questionResults;
+    private ArrayList<String> questionResults;
     int questionNum;
     int answerNum;
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         answers = getResources().getStringArray(R.array.answers);
         questions = getResources().getStringArray(R.array.questions);
         correctAnswers = getResources().getStringArray(R.array.correct_answers);
-        questionResults = new String[questions.length];
+        questionResults = new ArrayList<>();
         setUpQuestion();
     }
 
@@ -54,15 +54,15 @@ public class MainActivity extends AppCompatActivity {
         Button clicked = (Button) v;
         if (clicked.getText().equals(correctAnswers[questionNum])) {
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
-            questionResults[questionNum] = questions[questionNum] + "\n" + "Your Answer: " + clicked.getText()+ ": Correct!";
+            questionResults.add(questions[questionNum] + "\n" + "Your Answer: " + clicked.getText() + ": Correct!");
         }
         else {
             Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show();
-            questionResults[questionNum] = questions[questionNum]+ "\n" + "Your Answer: " + clicked.getText() + ": Incorrect";
+            questionResults.add(questions[questionNum] + "\n" + "Your Answer: " + clicked.getText()+ ": Incorrect!");
         }
         if (questionNum >= questions.length-1) {
             Intent i = new Intent(getApplicationContext(),ResultActivity.class);
-            i.putExtra("results",questionResults);
+            i.putStringArrayListExtra("results",questionResults);
             startActivity(i);
         }
         else {
